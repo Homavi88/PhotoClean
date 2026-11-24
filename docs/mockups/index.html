@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhotoClean — макеты экранов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f2f2f7;
+      --card: #ffffff;
+      --text: #1c1c1e;
+      --secondary: #6c6c70;
+      --accent: #2e8565;
+      --accent-soft: rgba(46, 133, 101, 0.12);
+      --danger: #e5484d;
+      --orange-soft: rgba(255, 149, 0, 0.14);
+      --hairline: rgba(60, 60, 67, 0.12);
+      --phone: #111;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Manrope", system-ui, sans-serif;
+      background: linear-gradient(160deg, #e8efe9 0%, #f6f4ef 45%, #e7eef8 100%);
+      color: var(--text);
+      padding: 48px 32px 80px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--secondary);
+      font-size: 16px;
+      margin-bottom: 40px;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px 28px;
+      align-items: flex-start;
+    }
+
+    .shot {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 320px;
+    }
+
+    .shot-label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .shot-desc {
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.4;
+      min-height: 36px;
+    }
+
+    .phone {
+      width: 320px;
+      height: 692px;
+      background: var(--phone);
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow:
+        0 30px 60px rgba(20, 40, 30, 0.22),
+        0 2px 0 rgba(255,255,255,0.15) inset;
+      position: relative;
+    }
+
+    .phone-inner {
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 108px;
+      height: 28px;
+      background: #000;
+      border-radius: 18px;
+      z-index: 5;
+    }
+
+    .status {
+      height: 48px;
+      padding: 16px 22px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .nav {
+      padding: 4px 16px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .nav.large { padding-top: 8px; }
+    .nav-back {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(120,120,128,0.12);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      color: var(--accent);
+    }
+    .nav-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .nav-title.large {
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      margin-top: 4px;
+    }
+    .nav-spacer { flex: 1; }
+    .nav-action {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--danger);
+    }
+
+    .scroll {
+      flex: 1;
+      overflow: hidden;
+      padding: 0 16px 20px;
+    }
+
+    .hero {
+      margin: 4px 0 16px;
+    }
+    .hero h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .hero p {
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.45;
+    }
+
+    .banner {
+      background: var(--orange-soft);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+    .banner strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .banner p {
+      font-size: 12px;
+      color: var(--secondary);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 14px;
+      cursor: default;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+    .btn-soft {
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 12px;
+    }
+    .btn-ghost {
+      background: rgba(120,120,128,0.12);
+      color: var(--text);
+      font-size: 12px;
+      padding: 7px 10px;
+    }
+    .btn-danger {
+      background: transparent;
+      color: var(--danger);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .section-hint {
+      font-size: 12px;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .mode {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      border: 1.5px solid transparent;
+    }
+    .mode.selected {
+      border-color: rgba(46, 133, 101, 0.55);
+    }
+    .mode-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .mode h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .mode p {
+      font-size: 11.5px;
+      color: var(--secondary);
+      line-height: 1.35;
+    }
+    .check {
+      margin-left: auto;
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1;
+    }
+    .check.off { color: rgba(120,120,128,0.35); }
+
+    .footnote {
+      margin-top: 14px;
+      font-size: 11.5px;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+
+    /* Scan */
+    .center-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 28px;
+      text-align: center;
+      gap: 14px;
+    }
+    .scan-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+    }
+    .scan-title { font-size: 20px; font-weight: 700; }
+    .scan-status { font-size: 13px; color: var(--secondary); }
+    .progress {
+      width: 100%;
+      height: 6px;
+      background: rgba(120,120,128,0.16);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 62%;
+      background: var(--accent);
+      border-radius: 99px;
+    }
+    .mono {
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      color: var(--secondary);
+    }
+
+    /* Groups */
+    .summary {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .summary strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .summary span { font-size: 12px; color: var(--secondary); }
+
+    .row {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #9ec9b4, #d7e8c8);
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .thumb.warm { background: linear-gradient(135deg, #e8c39e, #f0dfc0); }
+    .thumb.cool { background: linear-gradient(135deg, #9eb6e8, #c8d7f0); }
+    .thumb.rose { background: linear-gradient(135deg, #e89eb8, #f0c8d7); }
+    .thumb.mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(229, 72, 77, 0.28);
+    }
+    .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 99px;
+    }
+    .row-meta h3 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+    .row-meta p { font-size: 11px; color: var(--secondary); line-height: 1.35; }
+    .chev { margin-left: auto; color: rgba(60,60,67,0.3); font-size: 14px; }
+
+    .toast {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 18px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 11.5px;
+      line-height: 1.35;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      z-index: 4;
+    }
+
+    /* Detail */
+    .detail-hint {
+      font-size: 12px;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .cell {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+    .cell .thumb {
+      width: 100%;
+      height: 118px;
+      border-radius: 12px;
+    }
+    .cell-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Permission dialog overlay mock */
+    .sheet {
+      position: absolute;
+      inset: auto 10px 12px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 18px;
+      padding: 18px 16px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+      z-index: 6;
+      text-align: center;
+    }
+    .sheet h3 { font-size: 15px; margin-bottom: 8px; }
+    .sheet p { font-size: 12px; color: var(--secondary); line-height: 1.4; margin-bottom: 12px; }
+    .sheet-actions { display: flex; gap: 8px; }
+    .sheet-actions .btn { flex: 1; }
+
+    .dim {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.28);
+      z-index: 5;
+      border-radius: 34px;
+    }
+
+    .home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 4px;
+      background: #000;
+      border-radius: 99px;
+      opacity: 0.85;
+      z-index: 7;
+    }
+  </style>
+</head>
+<body>
+  <h1>PhotoClean — макеты экранов</h1>
+  <p class="subtitle">
+    Визуальный обзор пользовательского потока: доступ → выбор режимов → сканирование →
+    группы → превью и выбор → удаление в «Недавно удалённые».
+  </p>
+
+  <div class="gallery">
+
+    <!-- 1 Home -->
+    <figure class="shot" id="home">
+      <div class="shot-label">1. Главный экран — выбор режимов</div>
+      <div class="shot-desc">Мультивыбор: точные дубликаты, похожие, лучшие кадры. Кнопка «Сканировать».</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav large"><div class="nav-title large">PhotoClean</div></div>
+          <div class="scroll">
+            <div class="hero">
+              <h2>Освободите место без потери лучших кадров</h2>
+              <p>Сканирование только на устройстве. Удалённые фото попадают в «Недавно удалённые».</p>
+            </div>
+            <div class="section-label">Режимы очистки</div>
+            <div class="section-hint">Можно выбрать несколько — сканирование выполнит каждый по очереди.</div>
+
+            <div class="mode selected">
+              <div class="mode-icon">⧉</div>
+              <div>
+                <h3>Точные дубликаты</h3>
+                <p>Находит идентичные файлы по хешу содержимого</p>
+              </div>
+              <div class="check">●</div>
+            </div>
+            <div class="mode selected">
+              <div class="mode-icon">▣</div>
+              <div>
+                <h3>Похожие фото</h3>
+                <p>Группирует визуально похожие снимки</p>
+              </div>
+              <div class="check">●</div>
+            </div>
+            <div class="mode">
+              <div class="mode-icon">★</div>
+              <div>
+                <h3>Лучшие кадры</h3>
+                <p>Выбирает лучший кадр; можно изменить перед удалением</p>
+              </div>
+              <div class="check off">○</div>
+            </div>
+
+            <button class="btn btn-primary">Сканировать</button>
+            <p class="footnote">Перед удалением можно просмотреть группы и изменить выбор.</p>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- 2 Permission -->
+    <figure class="shot" id="permission">
+      <div class="shot-label">2. Запрос доступа к Фото</div>
+      <div class="shot-desc">Системное разрешение readWrite + баннер при limited/denied доступе.</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav large"><div class="nav-title large">PhotoClean</div></div>
+          <div class="scroll" style="filter: blur(1px); opacity: 0.55;">
+            <div class="hero">
+              <h2>Освободите место без потери лучших кадров</h2>
+              <p>Сканирование только на устройстве.</p>
+            </div>
+            <div class="mode selected"><div class="mode-icon">⧉</div><div><h3>Точные дубликаты</h3><p>…</p></div><div class="check">●</div></div>
+            <button class="btn btn-primary">Сканировать</button>
+          </div>
+          <div class="dim"></div>
+          <div class="sheet">
+            <h3>«PhotoClean» запрашивает доступ к Фото</h3>
+            <p>PhotoClean нужен доступ к медиатеке, чтобы находить дубликаты и похожие фото на устройстве.</p>
+            <div class="sheet-actions">
+              <button class="btn btn-ghost">Не разрешать</button>
+              <button class="btn btn-soft">Разрешить</button>
+            </div>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- 3 Scan -->
+    <figure class="shot" id="scan">
+      <div class="shot-label">3. Сканирование</div>
+      <div class="shot-desc">Прогресс хеширования / сравнения, отмена, счётчик обработанных фото.</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav">
+            <div class="nav-back">‹</div>
+            <div class="nav-title">Сканирование</div>
+          </div>
+          <div class="center-panel">
+            <div class="scan-icon">▣</div>
+            <div class="scan-title">Похожие фото</div>
+            <div class="scan-status">Обработано 784 из 1260</div>
+            <div class="progress"><span></span></div>
+            <div class="mono">784 / 1260</div>
+            <div style="font-size:13px;font-weight:600;margin-top:4px;">Групп найдено: 18</div>
+            <button class="btn btn-danger" style="margin-top:24px;">Отменить</button>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- 4 Groups -->
+    <figure class="shot" id="groups">
+      <div class="shot-label">4. Список групп</div>
+      <div class="shot-desc">Сводка по объёму, список групп по режимам, кнопка массового удаления.</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav">
+            <div class="nav-back">‹</div>
+            <div class="nav-title">Группы</div>
+            <div class="nav-spacer"></div>
+            <div class="nav-action">Удалить</div>
+          </div>
+          <div class="scroll">
+            <div class="summary">
+              <strong>12 групп · к удалению 27</strong>
+              <span>Можно освободить ≈ 184 МБ</span>
+            </div>
+            <div class="row">
+              <div class="thumb"><span class="badge">Лучшее</span></div>
+              <div class="row-meta">
+                <h3>Лучшие кадры</h3>
+                <p>4 фото · удалить 3<br/>42 МБ</p>
+              </div>
+              <div class="chev">›</div>
+            </div>
+            <div class="row">
+              <div class="thumb warm"></div>
+              <div class="row-meta">
+                <h3>Точные дубликаты</h3>
+                <p>2 фото · удалить 1<br/>8,4 МБ</p>
+              </div>
+              <div class="chev">›</div>
+            </div>
+            <div class="row">
+              <div class="thumb cool"></div>
+              <div class="row-meta">
+                <h3>Похожие фото</h3>
+                <p>5 фото · удалить 4<br/>61 МБ</p>
+              </div>
+              <div class="chev">›</div>
+            </div>
+            <div class="row">
+              <div class="thumb rose"></div>
+              <div class="row-meta">
+                <h3>Похожие фото</h3>
+                <p>3 фото · удалить 2<br/>19 МБ</p>
+              </div>
+              <div class="chev">›</div>
+            </div>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- 5 Detail -->
+    <figure class="shot" id="detail">
+      <div class="shot-label">5. Превью группы — выбор</div>
+      <div class="shot-desc">Автоkeep «Лучшее», кнопки «Оставить» / корзина, ручной override.</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav">
+            <div class="nav-back">‹</div>
+            <div class="nav-title">Просмотр</div>
+          </div>
+          <div class="scroll">
+            <div class="detail-hint">Лучшие кадры · 4 фото · к удалению 3</div>
+            <div class="detail-hint">Автовыбор лучшего кадра можно изменить: нажмите «Оставить» на другом фото.</div>
+            <div class="grid">
+              <div class="cell">
+                <div class="thumb" style="height:118px;width:100%;"><span class="badge">Лучшее</span></div>
+                <div class="cell-actions">
+                  <button class="btn btn-ghost" style="opacity:0.45;">Оставить</button>
+                  <button class="btn btn-ghost">🗑</button>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="thumb warm mark" style="height:118px;width:100%;"></div>
+                <div class="cell-actions">
+                  <button class="btn btn-ghost">Оставить</button>
+                  <button class="btn btn-ghost" style="color:var(--danger);">🗑</button>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="thumb cool mark" style="height:118px;width:100%;"></div>
+                <div class="cell-actions">
+                  <button class="btn btn-ghost">Оставить</button>
+                  <button class="btn btn-ghost" style="color:var(--danger);">🗑</button>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="thumb rose mark" style="height:118px;width:100%;"></div>
+                <div class="cell-actions">
+                  <button class="btn btn-ghost">Оставить</button>
+                  <button class="btn btn-ghost" style="color:var(--danger);">🗑</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- 6 Delete confirm -->
+    <figure class="shot" id="delete">
+      <div class="shot-label">6. Подтверждение удаления</div>
+      <div class="shot-desc">Диалог: удаление через Photos API → «Недавно удалённые» (30 дней).</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav">
+            <div class="nav-back">‹</div>
+            <div class="nav-title">Группы</div>
+            <div class="nav-spacer"></div>
+            <div class="nav-action">Удалить</div>
+          </div>
+          <div class="scroll" style="filter:blur(1.5px);opacity:0.5;">
+            <div class="summary"><strong>12 групп · к удалению 27</strong><span>≈ 184 МБ</span></div>
+            <div class="row"><div class="thumb"></div><div class="row-meta"><h3>Лучшие кадры</h3><p>4 фото</p></div></div>
+            <div class="row"><div class="thumb warm"></div><div class="row-meta"><h3>Точные дубликаты</h3><p>2 фото</p></div></div>
+          </div>
+          <div class="dim"></div>
+          <div class="sheet">
+            <h3>Удалить выбранные фото?</h3>
+            <p>Фото будут перемещены в «Недавно удалённые» и могут быть восстановлены в течение 30 дней.</p>
+            <div class="sheet-actions" style="flex-direction:column;">
+              <button class="btn" style="background:#ffe5e5;color:var(--danger);width:100%;">Удалить 27 фото</button>
+              <button class="btn btn-ghost" style="width:100%;">Отмена</button>
+            </div>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- 7 Done toast -->
+    <figure class="shot" id="done">
+      <div class="shot-label">7. Результат удаления</div>
+      <div class="shot-desc">Баннер с числом удалённых и освобождённым объёмом; группы обновляются.</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span>■■■</span></div>
+          <div class="nav">
+            <div class="nav-back">‹</div>
+            <div class="nav-title">Группы</div>
+          </div>
+          <div class="scroll">
+            <div class="summary">
+              <strong>3 группы · к удалению 0</strong>
+              <span>Можно освободить ≈ 0 КБ</span>
+            </div>
+            <div class="row">
+              <div class="thumb cool"></div>
+              <div class="row-meta">
+                <h3>Похожие фото</h3>
+                <p>2 фото · удалить 0<br/>—</p>
+              </div>
+              <div class="chev">›</div>
+            </div>
+          </div>
+          <div class="toast">Удалено 27 фото · 184 МБ. Можно восстановить в «Недавно удалённые».</div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </figure>
+
+  </div>
+</body>
+</html>
